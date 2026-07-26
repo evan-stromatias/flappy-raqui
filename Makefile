@@ -6,7 +6,7 @@
 
 PKG    := src/flappy_raqui
 ASSETS := $(PKG)/assets
-ICON   := $(ASSETS)/images/raqui5.png
+ICON   := $(ASSETS)/images/player.png
 OUT    := build
 NAME   := flappy-raqui
 
