@@ -1,6 +1,6 @@
 # Flappy Raqui
 
-![Flappy Raqui](images/flappy-raqui.gif)
+![Flappy Raqui](flappy-raqui.gif)
 
 A small raylib game I made for my kid, nothing fancy but they had fun with it. It's inspired by [Flappy Bird](https://en.wikipedia.org/wiki/Flappy_Bird).
 
