@@ -1,0 +1,49 @@
+[project]
+name = "flappy-raqui"
+description = "Flappy Raqui — a raylib game bundled with the slice of PyRayNgine it uses"
+dynamic = ["version"]
+readme = "README.md"
+authors = [
+    { name = "Evan Stromatias", email = "evangelos.stromatias@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "raylib==6.0.1.0",
+    "esper==3.4",
+]
+
+[project.scripts]
+flappy-raqui = "flappy_raqui:main"
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+# uv's own backend has no dynamic-metadata support, so the version comes from
+# hatchling reading the literal in src/flappy_raqui/__version__.py.
+[tool.hatch.version]
+path = "src/flappy_raqui/__version__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/flappy_raqui"]
+
+[dependency-groups]
+build = [
+    "nuitka[onefile]==4.1.3",
+    "patchelf==0.17.2.4 ; sys_platform == 'linux'",
+]
+dev = [
+    "pre-commit>=4.6.1",
+    "pytest>=9.1.1",
+    "ruff>=0.16.0",
+]
+
+[tool.ruff]
+# Treat code under src/ as first-party so import sorting groups it correctly.
+src = ["src"]
+
+[tool.ruff.lint]
+# Only enable import sorting (isort). ruff format handles black-style formatting,
+# so no other lint rules are turned on.
+select = ["I"]
+

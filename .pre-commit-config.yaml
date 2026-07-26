@@ -1,0 +1,12 @@
+# Ruff, used only for import sorting (isort) and code formatting (black).
+# Config lives in pyproject.toml ([tool.ruff]); the linter is limited to the
+# "I" (isort) rules there, so `ruff-check` only sorts imports.
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.16.0
+    hooks:
+      # Import sorting (isort replacement) — --fix applies the reordering.
+      - id: ruff-check
+        args: [--fix]
+      # Code formatting (black replacement).
+      - id: ruff-format
